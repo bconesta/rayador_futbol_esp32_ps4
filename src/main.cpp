@@ -2,6 +2,13 @@
 #include <PS4Controller.h>
 #include <MotorDriver.h>
 
+//Definición de pines a utilizar por el puente H (L298N)
+#define EN_1 14
+#define IN1 13
+#define IN2 12
+#define EN_2 25
+#define IN3 27
+#define IN4 26
 //MODOS
 #define GATILLOS 0
 #define ANALOGICOS 1
@@ -15,8 +22,8 @@ Motor motorR;
 void setup() {
   Serial.begin(115200);
   
-  motorL.attach(13,12,14);
-  motorR.attach(27,26,25);
+  motorL.attach(IN1,IN2,EN_1);
+  motorR.attach(IN3,IN4,EN_2);
   
   PS4.begin("ee:ff:ee:ff:01:01");
   
